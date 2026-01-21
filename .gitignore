@@ -1,0 +1,20 @@
+# Windows / SO
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+build/
+dist/
+bin/
+obj/
+
+# Logs
+*.log
+
+# Variables de entorno
+.env
+.env.*
