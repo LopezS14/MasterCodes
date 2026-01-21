@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Asistente Emocional</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
+        #chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: auto; }
+        .message { margin-bottom: 10px; }
+        .user { text-align: right; color: blue; }
+        .bot { text-align: left; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Asistente Emocional</h1>
+    <div id="chat"></div>
+
+    <input type="text" id="input" placeholder="Escribe tu mensaje..." style="width: 80%;" />
+    <button id="sendBtn">Enviar</button>
+    <button id="micBtn">🎤</button>
+
+    <script>
+        const chat = document.getElementById("chat");
+        const input = document.getElementById("input");
+        const sendBtn = document.getElementById("sendBtn");
+        const micBtn = document.getElementById("micBtn");
+
+        function appendMessage(text, sender) {
+            const div = document.createElement("div");
+            div.classList.add("message");
+            div.classList.add(sender);
+            div.textContent = text;
+            chat.appendChild(div);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        async function sendMessage(message) {
+            appendMessage(message, "user");
+
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message })
+            });
+            const data = await res.json();
+
+            if (data.response) {
+                appendMessage(data.response, "bot");
+                playAudio(data.audio_path);
+            } else {
+                appendMessage("Error en la respuesta", "bot");
+            }
+        }
+
+        function playAudio(filename) {
+            const audio = new Audio("/audio/" + filename);
+            audio.play();
+            // Opcional: borrar audio luego de que termine
+            audio.onended = () => {
+                fetch("/delete_audio/" + filename, { method: "POST" });
+            }
+        }
+
+        sendBtn.onclick = () => {
+            const msg = input.value.trim();
+            if (msg) {
+                sendMessage(msg);
+                input.value = "";
+            }
+        };
+
+        input.addEventListener("keydown", e => {
+            if (e.key === "Enter") sendBtn.click();
+        });
+
+        // Funcionalidad micrófono con Web Speech API (solo en navegadores compatibles)
+        micBtn.onclick = () => {
+            if (!('webkitSpeechRecognition' in window)) {
+                alert("Tu navegador no soporta reconocimiento de voz");
+                return;
+            }
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = "es-ES";
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                input.value = transcript;
+            };
+            recognition.onerror = function(event) {
+                alert("Error en reconocimiento de voz: " + event.error);
+            }
+        };
+
+        // Mensaje inicial del bot
+        appendMessage("Te doy la bienvenida, estoy aqui para ayudarte.", "bot");
+    </script>
+</body>
+</html>

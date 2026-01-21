@@ -1,0 +1,548 @@
+{
+  "config": {
+    "language": "es",
+    "confidence_threshold": 0.55,
+    "normalize_text": true,
+    "notes": "Normaliza a minúsculas y elimina acentos antes de clasificar."
+  },
+  "intents": [
+    {
+      "tag": "saludo",
+      "patterns": [
+        "hola", "holi", "holaaa", "hello", "hey", "buenos dias", "buenos días",
+        "buenas tardes", "buenas noches", "que tal", "qué tal", "que onda",
+        "buen dia", "buen día", "saludos", "hi"
+      ],
+      "responses": [
+        "Hola, qué gusto leerte. ¿Cómo te sientes hoy?",
+        "¡Hola! Estoy aquí para ti. ¿Qué te gustaría compartir?",
+        "Hola. Cuéntame: ¿qué pasó?"
+      ]
+    },
+    {
+      "tag": "despedida",
+      "patterns": [
+        "adios", "adiós", "hasta luego", "nos vemos", "me voy", "bye",
+        "gracias, nos vemos", "cuídate", "cuidate", "hasta pronto"
+      ],
+      "responses": [
+        "Gracias por confiar. Cuídate; aquí estaré cuando me necesites.",
+        "Me alegra acompañarte. Hasta luego.",
+        "Que tengas buen día. Estoy a un mensaje de distancia."
+      ]
+    },
+    {
+      "tag": "agradecimiento",
+      "patterns": [
+        "gracias", "mil gracias", "muchas gracias", "te agradezco",
+        "me ayudaste", "que amable", "qué amable", "thanks"
+      ],
+      "responses": [
+        "Con gusto. ¿Quieres que sigamos con algo más?",
+        "Me alegra haber ayudado. ¿Hay algo más en lo que te apoye?",
+        "Para eso estoy. Si quieres, seguimos."
+      ]
+    },
+    {
+      "tag": "ayuda",
+      "patterns": [
+        "ayuda", "necesito ayuda", "me ayudas", "puedes ayudarme",
+        "no se por donde empezar", "no sé por dónde empezar", "me apoyas",
+        "necesito apoyo", "no entiendo que hacer", "no entiendo qué hacer"
+      ],
+      "responses": [
+        "Claro. Dime en una frase: emoción (enojo/ansiedad/tristeza…) + situación (tarea/trabajo/relación).",
+        "Estoy contigo. ¿Prefieres respiración breve, dividir la tarea, o un plan de 3 pasos?"
+      ]
+    },
+    {
+      "tag": "aclaracion",
+      "patterns": [
+        "no entiendo", "¿de qué hablas?", "de que hablas", "explicalo diferente",
+        "explícalo diferente", "explicate mejor", "no te sigo", "repite por favor",
+        "no quedo claro", "no quedó claro", "puedes explicarme de otra forma"
+      ],
+      "responses": [
+        "Perdón si no fui claro. Intentémoslo de otro modo: cuéntame qué sientes y qué pasó.",
+        "Vamos paso a paso. ¿Prefieres que te guíe con un ejercicio de 2 minutos o dividimos la tarea?"
+      ]
+    },
+    {
+      "tag": "affirm",
+      "patterns": [
+        "si", "sí", "de acuerdo", "ok", "va", "me parece", "correcto",
+        "dale", "hagamoslo", "hagámoslo", "quiero"
+      ],
+      "responses": [
+        "Perfecto. Vamos a ello.",
+        "Genial. Empecemos."
+      ]
+    },
+    {
+      "tag": "deny",
+      "patterns": [
+        "no", "nel", "no gracias", "prefiero que no", "ahora no", "luego"
+      ],
+      "responses": [
+        "Está bien. ¿Quieres que solo te escuche?",
+        "Ok, aquí estaré cuando te lata continuar."
+      ]
+    },
+    {
+      "tag": "smalltalk_estado",
+      "patterns": [
+        "como estas", "¿cómo estás?", "que haces", "¿qué haces?",
+        "estas ahi", "¿estás ahí?", "sigues ahi", "¿sigues ahí?"
+      ],
+      "responses": [
+        "Aquí contigo. ¿Cómo va tu día?",
+        "Aquí estoy. ¿Qué te gustaría trabajar ahora?"
+      ]
+    },
+
+
+    {
+      "tag": "estresado",
+      "patterns": [
+        "estoy estresado", "estoy estresada", "estres",
+        "el estres me consume", "el estrés me consume",
+        "me siento bajo presion", "me siento bajo presión",
+        "estoy muy tenso", "estoy muy tensa", "el estrés me abruma",
+        "mucha carga de trabajo", "demasiadas cosas por hacer"
+      ],
+      "responses": [
+        "Lo que sientes es válido. ¿Prefieres un ejercicio 4-7-8 o priorizar 3 tareas pequeñas?",
+        "Probemos: respira 4-7-8 por 4 ciclos y escribe 3 prioridades realistas."
+      ]
+    },
+    {
+      "tag": "agotado",
+      "patterns": [
+        "estoy agotado", "estoy agotada", "sin fuerzas", "muy cansado",
+        "muy cansada", "agotado emocionalmente", "me siento sin energia",
+        "me siento sin energía", "no doy mas", "no doy más"
+      ],
+      "responses": [
+        "Debe ser pesado. Pausa de 10 min sin pantallas, agua y estiramientos suaves.",
+        "Si quieres, armamos micro-descansos para hoy."
+      ]
+    },
+    {
+      "tag": "preocupado",
+      "patterns": [
+        "estoy muy preocupado", "estoy muy preocupada", "preocupacion",
+        "la preocupacion me abruma", "tengo muchos pendientes",
+        "tengo cosas en la cabeza", "mis problemas me consumen",
+        "estoy intranquilo", "estoy intranquila"
+      ],
+      "responses": [
+        "Tiene sentido que te sientas así. Probemos 5-4-3-2-1 y luego 3 pasos accionables pequeños.",
+        "¿Quieres que te escuche o que planifiquemos acciones?"
+      ]
+    },
+    {
+      "tag": "confundido",
+      "patterns": [
+        "estoy confundido", "estoy confundida", "me siento sin direccion",
+        "me siento sin dirección", "dudo de mi", "dudo de mí",
+        "no se que hacer", "no sé qué hacer", "estoy muy confundid*"
+      ],
+      "responses": [
+        "Estás reflexionando; eso es valioso. Hagamos 'hechos vs suposiciones' y elegimos el siguiente paso.",
+        "¿Te guío para aclararlo en 2-3 pasos?"
+      ]
+    },
+    {
+      "tag": "frustrado",
+      "patterns": [
+        "estoy frustrado", "estoy frustrada", "la frustracion me abruma",
+        "la frustración me abruma", "mis intentos han fracasado",
+        "me siento sin soluciones", "fracase en algo importante",
+        "fracasé en algo importante"
+      ],
+      "responses": [
+        "Tu esfuerzo importa. ¿Qué aprendizaje concreto te llevas? Hagamos un cambio pequeño y realista.",
+        "Si quieres, dividimos el problema en micro-pasos."
+      ]
+    },
+    {
+      "tag": "avergonzado",
+      "patterns": [
+        "me siento avergonzado", "me siento avergonzada", "vergüenza",
+        "la verguenza me bloquea", "la vergüenza me bloquea",
+        "hice algo embarazoso", "cometi un error", "cometí un error",
+        "la culpa me paraliza"
+      ],
+      "responses": [
+        "Equivocarse es parte de aprender. ¿Quieres hablarlo?",
+        "Prueba autocompasión: háblate como a un buen amigo en tu lugar."
+      ]
+    },
+    {
+      "tag": "defraudado",
+      "patterns": [
+        "estoy defraudado", "estoy defraudada", "alguien me fallo",
+        "alguien me falló", "traicionaron mi confianza",
+        "me rompieron el alma", "la decepcion duele", "la decepción duele"
+      ],
+      "responses": [
+        "Es válido sentirlo. Podemos escribir lo que sientes y pensar en límites sanos.",
+        "¿Quieres hablarlo conmigo ahora?"
+      ]
+    },
+    {
+      "tag": "abrumado",
+      "patterns": [
+        "estoy abrumado", "estoy abrumada", "la situacion me supera",
+        "la situación me supera", "me siento sin aire", "sin fuerza para continuar",
+        "la vida me abruma", "tengo demasiado"
+      ],
+      "responses": [
+        "Estás cargando mucho. Elige una tarea de ≤5 min y hagámosla juntos.",
+        "¿Quieres una pausa de respiración y luego priorizamos?"
+      ]
+    },
+    {
+      "tag": "desesperado",
+      "patterns": [
+        "estoy desesperado", "estoy desesperada", "la desesperacion me inunda",
+        "la desesperación me inunda", "no puedo mas", "no puedo más",
+        "sin esperanzas", "esto es insostenible"
+      ],
+      "responses": [
+        "Lo siento, suena muy duro. Estoy contigo.",
+        "Si te sientes en riesgo, busca ayuda inmediata con alguien de confianza o servicios locales."
+      ]
+    },
+    {
+      "tag": "traicionado",
+      "patterns": [
+        "me han traicionado", "traicion", "traición",
+        "alguien en quien confiaba me fallo", "me fallaron",
+        "la traicion duele mucho", "la traición duele mucho"
+      ],
+      "responses": [
+        "Romper la confianza duele. Podemos hablar de límites y cuidado propio.",
+        "Tómate tu tiempo; es un proceso."
+      ]
+    },
+    {
+      "tag": "ansiedad",
+      "patterns": [
+        "tengo ansiedad", "me siento ansioso", "me siento ansiosa", "me da ansiedad",
+        "nervioso sin razon", "nerviosa sin razon", "nervioso sin razón", "nerviosa sin razón",
+        "me acelero mucho", "tengo taquicardia por ansiedad"
+      ],
+      "responses": [
+        "No estás solo. ¿Prefieres respiración cuadrada o anclaje 5-4-3-2-1?",
+        "Evita cafeína por ahora, toma agua y camina 5 minutos si puedes."
+      ]
+    },
+    {
+      "tag": "miedo",
+      "patterns": [
+        "tengo miedo", "estoy asustado", "estoy asustada", "me da panico",
+        "me da pánico", "temor constante", "me preocupa que algo pase"
+      ],
+      "responses": [
+        "El miedo intenta protegerte. Separemos lo controlable de lo no controlable.",
+        "Respira lento y nombra 5 cosas que ves para volver al presente."
+      ]
+    },
+    {
+      "tag": "tristeza",
+      "patterns": [
+        "estoy triste", "me siento muy triste", "ando bajonead*", "ganas de llorar",
+        "no tengo animos", "no tengo ánimos", "estoy desanimad*"
+      ],
+      "responses": [
+        "Siento que te sientas así. ¿Quieres que te escuche?",
+        "Autocuidado breve: ducha tibia, algo caliente, playlist suave, mensaje a alguien de confianza."
+      ]
+    },
+    {
+      "tag": "soledad",
+      "patterns": [
+        "me siento solo", "me siento sola", "no tengo a nadie",
+        "estoy aislado", "estoy aislada", "nadie me entiende", "me siento apartado", "me siento apartada"
+      ],
+      "responses": [
+        "Aquí te escucho. ¿Planeamos un acercamiento breve con alguien seguro?",
+        "Un 'hola, ¿cómo vas?' puede ser un buen primer paso."
+      ]
+    },
+    {
+      "tag": "enojo",
+      "patterns": [
+        "estoy enojado", "estoy enojada", "tengo mucha ira", "me da coraje",
+        "estoy molesto", "estoy molesta", "me frustra todo", "estoy que exploto",
+        "me enoja no poder", "me enoja que no me salga", "no me sale mi tarea y me enojo",
+        "no puedo con mi tarea y me frustro", "estoy enojad* porque no me sale mi tarea",
+        "me siento molesto con mi tarea", "me siento molesta con mi tarea"
+      ],
+      "responses": [
+        "El enojo suele venir de la frustración. ¿Quieres soltarlo de forma segura?",
+        "Haz 3 respiraciones profundas. Escribe qué te trabó y elige el paso más pequeño (≤5 min).",
+        "Si quieres, dividimos la tarea en micro-pasos juntos."
+      ]
+    },
+    {
+      "tag": "culpa",
+      "patterns": [
+        "siento culpa", "me arrepiento", "no me perdono",
+        "me pesa lo que hice", "me siento mal por eso"
+      ],
+      "responses": [
+        "La culpa puede guiar al aprendizaje. ¿Exploramos reparación o perdón hacia ti?",
+        "Escribe: qué pasó, qué aprendiste y una acción para reparar o prevenir."
+      ]
+    },
+    {
+      "tag": "duelo",
+      "patterns": [
+        "perdi a alguien", "perdí a alguien", "estoy de luto",
+        "extraño mucho", "no supero la perdida", "no supero la pérdida",
+        "me duele su ausencia"
+      ],
+      "responses": [
+        "Lamento tu pérdida. Aquí te acompaño.",
+        "Ritual breve: enciende una vela (real o simbólica) y di en voz alta lo que agradeces."
+      ]
+    },
+    {
+      "tag": "autoestima_baja",
+      "patterns": [
+        "no valgo", "me siento insuficiente", "soy un fracaso", "no soy capaz",
+        "me comparo con todos", "no sirvo"
+      ],
+      "responses": [
+        "Eso no define tu valor. ¿Hacemos un ejercicio de autovaloración?",
+        "Anota 3 evidencias de logros/cualidades (aunque sean pequeñas)."
+      ]
+    },
+    {
+      "tag": "insomnio",
+      "patterns": [
+        "no puedo dormir", "tengo insomnio", "me desvelo",
+        "me despierto en la noche", "no descanso bien", "duermo mal",
+        "no concilio el sueño", "pesadillas"
+      ],
+      "responses": [
+        "Dormir mal agota. Higiene del sueño: sin pantallas 60 min antes, cuarto fresco/oscuro, 4-7-8.",
+        "Si te despiertas: nota 3 cosas que oyes/ves/sientes y vuelve a la respiración."
+      ]
+    },
+    {
+      "tag": "procrastinacion",
+      "patterns": [
+        "lo dejo para despues", "lo dejo para después", "no me puedo concentrar",
+        "pospongo todo", "no empiezo", "me distraigo mucho",
+        "no arranco", "se me va el tiempo"
+      ],
+      "responses": [
+        "Pasa mucho. Técnica Pomodoro corta (10 min) con tarea mínima (≤5 min).",
+        "Quita distracciones, empieza 10 min y recompénsate al terminar."
+      ]
+    },
+    {
+      "tag": "falta_motivacion",
+      "patterns": [
+        "no tengo motivacion", "no tengo motivación", "no me nace",
+        "sin ganas de hacer nada", "no veo para que", "no veo para qué",
+        "me falta impulso"
+      ],
+      "responses": [
+        "La motivación suele venir después de la acción. Hagamos un primer paso de 5 min.",
+        "Conecta la tarea con un valor personal (salud/aprendizaje/libertad) y arranca 5 min."
+      ]
+    },
+    {
+      "tag": "perfeccionismo",
+      "patterns": [
+        "todo debe salir perfecto", "temo equivocarme",
+        "si no es perfecto no sirve", "no entrego por miedo", "me tardo demasiado"
+      ],
+      "responses": [
+        "El perfeccionismo protege pero cansa. Apuntemos a 'suficientemente bueno' (70-80%).",
+        "Define un límite de tiempo y respétalo; revisamos en dos iteraciones."
+      ]
+    },
+    {
+      "tag": "ataque_panico",
+      "patterns": [
+        "siento que me da un ataque", "taquicardia y miedo", "me falta el aire",
+        "me voy a desmayar", "siento que muero", "ataque de panico", "ataque de pánico"
+      ],
+      "responses": [
+        "Es intenso pero pasa. Exhala más largo que la inhalación por 2 minutos.",
+        "Nombra 5 cosas que ves, toca algo frío y bebe agua. Si persiste, busca atención médica."
+      ]
+    },
+    {
+      "tag": "limites",
+      "patterns": [
+        "no se poner limites", "no sé poner límites", "me cuesta decir no",
+        "cedo siempre", "me pasan por encima", "me da culpa decir no"
+      ],
+      "responses": [
+        "Poner límites cuida tu bienestar. Frase: 'Ahora no puedo; puedo en X momento'.",
+        "Ensáyalo en voz baja. Claro y breve basta."
+      ]
+    },
+    {
+      "tag": "relacion_toxica",
+      "patterns": [
+        "relacion toxica", "relación tóxica", "me manipulan",
+        "gaslighting", "me controlan", "me lastiman emocionalmente",
+        "mi pareja me hace daño"
+      ],
+      "responses": [
+        "Mereces respeto y seguridad. ¿Identificamos señales y un plan de cuidado?",
+        "Registra incidentes, apóyate en alguien de confianza y define límites o distancia."
+      ]
+    },
+    {
+      "tag": "trabajo_burnout",
+      "patterns": [
+        "quemado en el trabajo", "burnout", "exceso de trabajo",
+        "no doy mas en la oficina", "no doy más en la oficina", "estres laboral", "estrés laboral"
+      ],
+      "responses": [
+        "El agotamiento laboral es real. Micro-pausas de 3 min/hora, agua y estiramientos.",
+        "Priorizamos 3 tareas clave y negociamos cargas realistas."
+      ]
+    },
+    {
+      "tag": "estudios_examenes",
+      "patterns": [
+        "ansiedad por examenes", "ansiedad por exámenes",
+        "no me concentro para estudiar", "me bloqueo en el examen",
+        "me quedo en blanco", "me da panico presentar", "me da pánico presentar"
+      ],
+      "responses": [
+        "Normal sentir nervios. Bloques 25/5, repaso activo y mini simulacros.",
+        "Antes del examen: respiración 4-4-6 por 3 ciclos."
+      ]
+    },
+    {
+      "tag": "decision_dificil",
+      "patterns": [
+        "no se que decidir", "no sé qué decidir", "decision dificil",
+        "decisión difícil", "tengo dudas con mi eleccion", "me cuesta decidir",
+        "no puedo elegir"
+      ],
+      "responses": [
+        "Hagamos marco rápido: opciones, pros/contras, impacto corto/largo y primer paso reversible.",
+        "Elige la opción que más se alinea a tu valor principal."
+      ]
+    },
+
+    {
+      "tag": "pedir_ejercicio_relajacion",
+      "patterns": [
+        "guiame un ejercicio", "guíame un ejercicio", "un ejercicio de respiracion",
+        "un ejercicio de respiración", "necesito relajarme", "quiero un ejercicio breve",
+        "algo para calmarme", "respiracion", "respiración"
+      ],
+      "responses": [
+        "Vamos con 4-7-8: inhala 4s, sostén 7s, exhala 8s. Repite 4 veces y dime cómo te sientes.",
+        "Anclaje 5-4-3-2-1: 5 cosas que ves, 4 que sientes con el tacto, 3 que oyes, 2 que hueles, 1 que saboreas."
+      ]
+    },
+    {
+      "tag": "pedir_recomendaciones_generales",
+      "patterns": [
+        "que me recomiendas", "qué me recomiendas", "consejos rapidos",
+        "consejos rápidos", "tips para sentirme mejor", "que puedo hacer ahora",
+        "qué puedo hacer ahora", "recomendaciones"
+      ],
+      "responses": [
+        "Empieza con algo pequeño: respiración lenta 2 min, vaso de agua, estirar cuello/hombros, tarea de 5 min.",
+        "Escribe 3 pendientes y elige 1. Al terminar: mini-recompensa."
+      ]
+    },
+    {
+      "tag": "rutina_bienestar",
+      "patterns": [
+        "quiero una rutina", "como hago habitos", "cómo hago hábitos",
+        "rutina de bienestar", "habitos saludables", "hábitos saludables", "plan diario"
+      ],
+      "responses": [
+        "Rutina mínima: 1) agua al despertar, 2) 2 min de respiración, 3) bloque de 25 min, 4) pausa consciente.",
+        "Elige una acción ancla por la mañana y otra por la noche."
+      ]
+    },
+    {
+      "tag": "motivacion_rapida",
+      "patterns": [
+        "necesito motivacion", "necesito motivación", "un empujon", "un empujón",
+        "animo rapido", "ánimo rápido", "levantar el animo", "energía ya"
+      ],
+      "responses": [
+        "Activa el cuerpo 60–90s (saltitos/sacudir brazos), agua fría en manos/cara y meta de 5 min.",
+        "Repite: 'Solo por 5 minutos'. Empieza y luego revaluamos."
+      ]
+    },
+    {
+      "tag": "micro_autocuidado",
+      "patterns": [
+        "algo pequeño para cuidarme", "autocuidado rapido", "autocuidado rápido",
+        "que hago en 5 minutos", "tengo poco tiempo", "pausa breve"
+      ],
+      "responses": [
+        "Ideas: beber agua, estirar cuello, abrir ventana y respirar, escribir 3 frases, música suave 2 min.",
+        "Elige 1 ahora y dime cómo te fue."
+      ]
+    },
+    {
+      "tag": "seguimiento",
+      "patterns": [
+        "seguimos con lo de ayer", "retomemos", "como te dije antes",
+        "quiero continuar", "quedamos en", "continuemos"
+      ],
+      "responses": [
+        "Perfecto, retomemos. ¿Qué cambió desde la última vez?",
+        "¿Qué te funcionó y qué no? Ajustamos el plan."
+      ]
+    },
+
+
+    {
+      "tag": "crisis_urgente",
+      "patterns": [
+        "no quiero vivir", "pienso hacerme daño", "quiero lastimarme",
+        "no le veo sentido a nada", "quiero acabar con esto",
+        "me quiero morir", "no vale la pena vivir"
+      ],
+      "responses": [
+        "Siento que estés pasando por esto. Tu vida importa.",
+        "Si estás en peligro o podrías lastimarte, busca ayuda inmediata con servicios de emergencia locales o alguien de confianza.",
+        "No estás solo/a. Hablar ahora mismo con un profesional puede ayudar."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [
+        "no entiendo", "¿de qué hablas?", "de que hablas", "no te sigo",
+        "no me ayudó", "no me ayudo", "qué quisiste decir", "repite por favor",
+        "no respondio a mi pregunta", "no respondió a mi pregunta"
+      ],
+      "responses": [
+        "Perdón si no fui claro. Dime: emoción (enojo/ansiedad/tristeza…) + situación (tarea/trabajo/relación).",
+        "Puedo ayudarte mejor si describes en una frase qué sientes y qué pasó."
+      ]
+    },
+    {
+      "tag": "out_of_scope",
+      "patterns": [
+        "habla en chino", "cual es el clima en marte", "dime tu numero",
+        "cual es tu whatsapp", "canta una cancion completa", "piratea",
+        "haz mi tarea de mates completa"
+      ],
+      "responses": [
+        "Eso está fuera de lo que puedo hacer. Pero puedo apoyarte con bienestar emocional y hábitos.",
+        "No puedo con esa petición, aunque sí puedo ayudarte con manejo de estrés/ansiedad/organización."
+      ]
+    }
+  ]
+}
