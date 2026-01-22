@@ -158,11 +158,14 @@ mask_red2 = cv2.dilate(mask_red2, kernel,iterations=20)
 mask_pink2=cv2.dilate(mask_pink2,kernel,iterations=10)
 mask_rosa_palido=cv2.erode(mask_rosa_palido,kernel,iterations=10)
 
+lower_violeta_azul = np.array([95, 60, 60])
+upper_violeta_azul = np.array([135, 255, 255])
+mask_blue_violeta=cv2.inRange(hsv_img, lower_violeta_azul, upper_violeta_azul)
 
 # Sumar máscaras
 #mask_sum = mask_pink+mask_cyan #365nm
 #mask_sum =  mask_blue + mask_violeta3#405
-mask_sum= mask_violeta3+mask_
+mask_sum= mask_blue_violeta
 #mask_sum=mask_pink+mask_red2+mask_pink2+mask_carnita2+mask_pink2
 #mask_sum=mask_green
 mask_sum = np.clip(mask_sum, 0, 255).astype(np.uint8)
