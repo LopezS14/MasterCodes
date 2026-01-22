@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Leer la imagen
-img = cv2.imread("Pacientes_imagenes/paciente6_1/Captura_22.jpg")
+img = cv2.imread("Pacientes_imagenes/Paciente1/Captura_7.jpg")
 hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 # Definir rangos de colorqq
@@ -115,6 +115,11 @@ mask_red1=cv2.inRange(hsv_img,lower_red1,upper_red1)
 lower_red2 = np.array([165, 50, 80])
 upper_red2 = np.array([179, 255, 255])
 
+lower_verde =np.array ([40, 80, 80])
+upper_verde = np.array([85, 255, 255])
+
+mask_green=cv2.inRange(hsv_img,lower_verde,upper_verde)
+
 lower_yellow_carne = np.array([15, 40, 120])
 upper_yellow_carne = np.array([20, 120, 230])
 mask_YC=cv2.inRange(hsv_img,lower_yellow_carne,upper_yellow_carne)
@@ -157,8 +162,9 @@ mask_rosa_palido=cv2.erode(mask_rosa_palido,kernel,iterations=10)
 # Sumar máscaras
 #mask_sum = mask_pink+mask_cyan #365nm
 #mask_sum =  mask_blue + mask_violeta3#405
-mask_sum=mask_pink+mask_red2+mask_pink2+mask_carnita2+mask_pink2
-#mask_sum=mask_YC
+mask_sum= mask_violeta3+mask_
+#mask_sum=mask_pink+mask_red2+mask_pink2+mask_carnita2+mask_pink2
+#mask_sum=mask_green
 mask_sum = np.clip(mask_sum, 0, 255).astype(np.uint8)
 
 # Eliminar fragmentos pequeños
