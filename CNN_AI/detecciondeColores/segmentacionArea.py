@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Leer la imagen
-img = cv2.imread("Pacientes_imagenes/Paciente4/Captura_8.jpg")
+img = cv2.imread("Pacientes_imagenes/paciente6/Captura_24.jpg")
 hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 # Definir rangos de colorqq
