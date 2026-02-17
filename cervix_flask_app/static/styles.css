@@ -1,0 +1,419 @@
+/* styles.css (versión compacta: todo cabe y no se ve gigante) */
+
+:root{
+  --bg1:#1b1c1e;
+  --bg2:#161719;
+  --cardA:#2b2d30;
+  --cardB:#202225;
+  --border:#3a3d40;
+  --text:#e8e8e8;
+  --muted:#a9a9a9;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+
+  /* >>> NUEVO: escala global de UI (ajusta 0.78–0.92) */
+  --ui-scale: 0.86;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+/* >>> NUEVO: reduce todo proporcionalmente */
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(var(--bg1), var(--bg2));
+  color:var(--text);
+
+  transform: scale(var(--ui-scale));
+  transform-origin: top left;
+  width: calc(100% / var(--ui-scale));
+  height: calc(100% / var(--ui-scale));
+}
+
+.app{
+  display:flex;
+  gap:14px;          /* antes 18 */
+  padding:14px;      /* antes 18 */
+  height:100vh;
+}
+
+/* IZQUIERDA */
+.left{
+  width:360px;       /* antes 420 */
+  display:flex;
+  flex-direction:column;
+  gap:14px;          /* antes 18 */
+}
+
+/* DERECHA */
+.right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.card, .viewer-card{
+  background: radial-gradient(1200px 400px at 50% -50%, var(--cardA), var(--cardB));
+  border:1px solid var(--border);
+  border-radius:18px;         /* antes 22 */
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.card-header, .viewer-header{
+  padding:10px 14px;           /* antes 16px 18px */
+  border-bottom:1px solid var(--border);
+  background: rgba(0,0,0,.15);
+}
+
+.title{
+  font-size:20px;              /* antes 26 */
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.card-body{padding:12px;}      /* antes 18 */
+
+/* Estado conexión */
+.status-row{
+  display:flex;
+  align-items:center;
+  gap:12px;                    /* antes 14 */
+  margin-bottom:12px;          /* antes 16 */
+}
+.dot{
+  width:34px;height:34px;      /* antes 40 */
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  font-size:18px;              /* antes 22 */
+  font-weight:900;
+}
+.dot-red{background:#c83a3a;}
+.dot-green{background:#3ea34a;}
+
+.status-text{font-size:24px;font-weight:800} /* antes 30 */
+.status-red{color:#ff5b5b;}
+.status-green{color:#79ff8a;}
+
+.label{
+  display:block;
+  font-size:18px;              /* antes 22 */
+  font-weight:700;
+  margin:10px 0 6px;           /* antes 12 0 8 */
+}
+
+.hint{
+  color:var(--muted);
+  font-size:15px;              /* antes 18 */
+  margin:6px 0 10px;           /* antes 8 0 14 */
+}
+
+.row{
+  display:flex;
+  gap:10px;                    /* antes 12 */
+  align-items:center;
+  margin:10px 0;               /* antes 12 */
+}
+.row.space{justify-content:space-between}
+
+.select{
+  flex:1;
+  background:#141516;
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:10px;          /* antes 12 */
+  padding:10px 12px;           /* antes 12 14 */
+  font-size:16px;              /* antes 20 */
+  outline:none;
+}
+#btnToggleConn{
+  display:flex !important;
+  width:100%;
+}
+
+
+.btn{
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--text);
+  border-radius:10px;          /* antes 12 */
+  padding:10px 12px;           /* antes 12 14 */
+  font-size:16px;              /* antes 20 */
+  cursor:pointer;
+  user-select:none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.btn:active{transform:translateY(1px)}
+
+.btn-gray{background: linear-gradient(#3a3d40, #2f3133);}
+.btn-green{background: linear-gradient(#5aa457, #3d7f3c);}
+.btn-red{background: linear-gradient(#d74747, #a22b2b);}
+
+.big{
+  width:100%;
+  padding:12px;                /* antes 16 */
+  font-size:24px;              /* antes 32 */
+  border-radius:12px;          /* antes 14 */
+  margin-top:8px;              /* antes 10 */
+}
+
+.radio{
+  display:flex;
+  align-items:center;
+  gap:10px;                    /* antes 12 */
+  font-size:18px;              /* antes 24 */
+  margin:8px 0;                /* antes 10 */
+}
+.radio input{transform:scale(1.15);} /* antes 1.35 */
+
+.bigNum{font-size:34px;font-weight:900}       /* antes 42 */
+.muted{color:var(--muted);font-size:18px}     /* antes 22 */
+
+.slider{width:100%}
+.ticks{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:14px;              /* antes 18 */
+  margin-top:5px;              /* antes 6 */
+}
+
+/* Viewer */
+.viewer-body{padding:12px;}    /* antes 16 */
+.viewer-card{
+  height: max-content;
+}
+.videoWrap{
+  position:relative;
+  width:100%;
+  flex:1;             /* 👈 se adapta al alto disponible */
+  min-height:600px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:#000;
+}
+
+.right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:contain;
+}
+.canvas{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  cursor:crosshair;
+}
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;                     /* antes 10 */
+  align-items:center;
+  margin-top:8px;              /* antes 10 */
+}
+.label-inline{color:var(--muted);font-weight:700}
+.help{
+  margin-top:10px;             /* antes 12 */
+  color:var(--muted);
+  font-size:14px;              /* antes 18 */
+}
+
+/* ===== Slider de Intensidad estilo imagen (compacto) ===== */
+.int-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:8px;           /* antes 10 */
+}
+.int-value{
+  font-size:34px;              /* antes 42 */
+  font-weight:900;
+  margin-right:6px;
+}
+.int-label{
+  color:var(--muted);
+  font-size:16px;              /* antes 20 */
+}
+.slider-wrap{
+  margin:8px 0 12px;           /* antes 10 0 16 */
+}
+.int-slider{
+  -webkit-appearance:none;
+  width:100%;
+  height:6px;
+  background:linear-gradient(90deg,#4fa3ff,#4fa3ff) no-repeat,
+             linear-gradient(#3a3d40,#3a3d40);
+  background-size:20% 100%,100% 100%;
+  border-radius:6px;
+  outline:none;
+}
+.int-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:18px;                  /* antes 22 */
+  height:18px;                 /* antes 22 */
+  border-radius:50%;
+  background:#bfe0ff;
+  border:2px solid #6fb3ff;
+  cursor:pointer;
+  margin-top:-6px;
+}
+.int-slider::-moz-range-thumb{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#bfe0ff;
+  border:2px solid #6fb3ff;
+  cursor:pointer;
+}
+.slider-scale{
+  display:flex;
+  justify-content:space-between;
+  padding:0 2px;
+  margin-top:6px;
+  font-size:14px;              /* antes 18 */
+  color:var(--muted);
+}
+/* ===== Tipo de luz en 2 columnas ===== */
+.radio-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr; /* dos columnas */
+  gap: 10px 24px;                 /* filas / columnas */
+}
+
+.radio{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;                 /* consistente con modo compacto */
+  margin:0;                       /* importante para grid */
+}
+/* ===== Leyenda interna Tipo de luz ===== */
+.sub-label{
+  font-size:16px;
+  font-weight:700;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+/* Grid de radios (si no lo tenías ya) */
+.radio-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  margin-bottom:12px;
+}
+
+.radio{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;
+  margin:0;
+}
+/* Evita que se corte el botón en Conexión */
+.conn-body{
+  max-height: 260px;   /* ajusta: 240–320 según tu pantalla */
+  overflow-y: auto;
+  padding-bottom: 18px; /* espacio extra para que el botón no quede pegado */
+}
+
+/* Scrollbar discreta */
+.conn-body::-webkit-scrollbar{ width: 8px; }
+.conn-body::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.16);
+  border-radius: 10px;
+}
+.conn-body::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.06);
+  border-radius: 50px;
+}
+.card-body{
+  padding:12px;
+  padding-bottom:20px; 
+}
+#btnToggleConn{
+  margin-top:12px;
+  width:100%;
+  display:flex;
+}
+.card{
+  overflow: visible;
+}
+.text-input{
+  background:#141516;
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:16px;
+  outline:none;
+}
+/* ===== FIX ALINEACIÓN: left y right al mismo nivel ===== */
+
+/* 1) layout principal en GRID (alineación perfecta) */
+.app{
+  display:grid !important;
+  grid-template-columns: 360px 1fr; /* respeta tu modo compacto */
+  gap:14px;
+  padding:14px;
+  height:100vh;
+  align-items:start; /* 👈 arriba */
+}
+
+/* 2) ambos paneles arrancan arriba */
+.left, .right{
+  align-self:start;
+  margin:0;
+  padding:0;
+}
+
+/* 3) panel derecho ocupa todo el alto */
+.right{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+/* 4) card derecha crece y body ocupa el resto */
+.viewer-card{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.viewer-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+/* 5) el visor ocupa el espacio disponible (no uses vh aquí) */
+.videoWrap{
+  flex:1;
+  min-height:600px; /* ajusta si quieres */
+}
+
+/* 6) elimina márgenes default que bajan el header del panel derecho */
+.viewer-header .title,
+.viewer-header h1,
+.viewer-header h2,
+.viewer-header h3,
+.viewer-header p{
+  margin:0;
+}
+
+/* 7) asegura que el header tenga el mismo padding que el de la izquierda */
+.card-header, .viewer-header{
+  padding:10px 14px;
+}

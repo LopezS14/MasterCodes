@@ -1,0 +1,40 @@
+
+
+Kuwaiti, A.A.; Nazer, K.; Al-Reedy, A.; Al-Shehri, S.; Al-Muhanna, A.; Subbarayalu, A.V.; Muhanna, D.A.; Al-Muhanna, F.A. A review of the role of artificial intelligence in healthcare. J. Pers. Med. 2023, 13. https://doi.org/10.3390/jpm13060951
+.
+
+Liu, Y.; Ding, X.; Peng, S.; Zhang, C. Leveraging ChatGPT to optimize depression intervention through explainable deep learning. Front. Psychiatry 2024, 15. https://doi.org/10.3389/fpsyt.2024.1383648
+.
+
+Malik, S.; Muhammad, K.; Waheed, Y. Artificial intelligence and industrial applications—A revolution in modern industries. Ain Shams Eng. J. 2024, 15. https://doi.org/10.1016/j.asej.2024.102886
+.
+
+Nguyen, A.; Grummitt, L.; Barrett, E.L.; Bailey, S.; Gardner, L.A.; Champion, K.E.; Birrell, L. The relationship between emotion regulation and mental health in adolescents: Self-compassion as a moderator. Ment. Health Prev. 2025, 38. https://doi.org/10.1016/j.mhp.2025.200430
+.
+
+Ogunleye, B.; Zakariyyah, K.I.; Ajao, O.; Olayinka, O.; Sharma, H. A systematic review of generative AI for teaching and learning practice. Educ. Sci. 2024, 14. https://doi.org/10.3390/educsci14060636
+.
+
+Singh, B.; Olds, T.; Brinsley, J.; Dumuid, D.; Virgara, R.; Matricciani, L.; Watson, A.; Szeto, K.; Eglitis, E.; Miatke, A.; Simpson, C.E.M.; Vandelanotte, C.; Maher, C. Systematic review and meta-analysis of the effectiveness of chatbots on lifestyle behaviours. npj Digit. Med. 2023, 6. https://doi.org/10.1038/s41746-023-00856-1
+.
+
+Shan, C.; Gong, S.; McOwan, P.W. Facial expression recognition based on local binary patterns: A comprehensive study. Image Vis. Comput. 2009, 27. https://doi.org/10.1016/j.imavis.2008.08.005
+.
+
+SpeechRecognition. Python Package Index (PyPI). Available online: https://pypi.org/project/SpeechRecognition/
+ (accessed on 12 May 2025).
+
+Weizenbaum, J. ELIZA—A computer program for the study of natural language communication between man and machine. Commun. ACM 1966, 9. https://doi.org/10.1145/365153.365168
+.
+
+World Health Organization (WHO). La salud mental de los adolescentes. Available online: https://www.who.int/es/newsroom/factsheets/detail/adolescent-mental-health
+ (accessed on 10 October 2024).
+
+Yan, C.; Johnson, K.; Jones, V.K. The impact of interaction time and verbal engagement with personal voice assistants on alleviating loneliness among older adults: An exploratory study. Int. J. Environ. Res. Public Health 2024, 21. https://doi.org/10.3390/ijerph21010100
+.
+
+Yang, S.; Lee, J.; Sezgin, E.; Bridge, J.; Lin, S. Clinical advice by voice assistants on postpartum depression: Cross-sectional investigation using Apple Siri, Amazon Alexa, Google Assistant, and Microsoft Cortana. JMIR mHealth uHealth 2021, 9. https://doi.org/10.2196/24045
+.
+Hume AI. Introducing the Empathic Voice Interface (EVI) API. Hume AI Blog, 2024.
+Available online: https://www.hume.ai/blog/introducing-hume-evi-api
+ (accessed on 11 January 2026).

@@ -18,3 +18,12 @@ obj/
 # Variables de entorno
 .env
 .env.*
+# Entornos virtuales Python
+venv/
+.venv/
+**/venv/
+**/.venv/
+
+# Python cache
+__pycache__/
+*.pyc

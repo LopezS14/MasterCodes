@@ -1,0 +1,68 @@
+
+
+Arteaga, P. I., Catoira, N., Rovira, C. L., Majeed, I., Martínez Escudé, A., & Torán Monserrat, P.** (2017). Esteatosis hepática: diagnóstico y seguimiento. *FMC - Form. Médica Contin. Aten. Primaria, 24*(7), 378–389.
+
+Berruga, S. G. (2021). *Diagnóstico de enfermedad hepática mediante técnicas de aprendizaje automático* [Universitat Oberta de Catalunya]. [http://hdl.handle.net/10609/138549](http://hdl.handle.net/10609/138549)
+
+Bhat, M., Rabindranath, M., Chara, B. S., & Simonetto, D. A.** (2023). Artificial intelligence, machine learning, and deep learning in liver transplantation. *Journal Of Hepatology, 78*(6), 1216–1233. [https://doi.org/10.1016/j.jhep.2023.01.006](https://doi.org/10.1016/j.jhep.2023.01.006)
+
+Breiman, L., Friedman, J., Stone, C. J., & Olshen, R.** (1984). *Classification and Regression Trees.* Chapman and Hall/CRC.
+
+Canny, J. (1986). A Computational Approach to Edge Detection. *IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI-8*(6), 679–698. [https://doi.org/10.1109/tpami.1986.4767851](https://doi.org/10.1109/tpami.1986.4767851)
+
+**Ding, G., Shi, J., Wang, X., Yan, B., Liu, X., & Gao, Q.** (2024). Artificial intelligence-based pathological analysis of liver cancer: Current advancements and interpretative strategies. *iLiver, 3*(1), 100082. [https://doi.org/10.1016/j.iliver.2024.100082](https://doi.org/10.1016/j.iliver.2024.100082)
+
+**Falconi, M. A. D. P. D. A. M. A. R. L. S. B. W. M.** (2024). Inteligencia artificial. Aplicación en las imágenes cardiovasculares y la prevención cardiovascular. *Revista Argentina de Cardiología.* [https://dx.doi.org/10.7775/rac.es.v92.i1.20727](https://dx.doi.org/10.7775/rac.es.v92.i1.20727)
+
+**Fujii, I., Matsumoto, N., Ogawa, M., Konishi, A., Kaneko, M., Watanabe, Y., Masuzaki, R., Kogure, H., Koizumi, N., & Sugitani, M.** (2024). Artificial Intelligence and Image Analysis-Assisted Diagnosis for Fibrosis Stage of MASLD Using Ultrasonography. *Diagnostics, 14*(22), 2585. [https://doi.org/10.3390/diagnostics14222585](https://doi.org/10.3390/diagnostics14222585)
+
+**Goodfellow, I., Bengio, Y., & Courville, A.** (2016). *Deep Learning.* MIT Press.
+
+**Graffigna, M., Catoira, N., Soutelo, J., Azpelicueta, A., Berg Gabriela y Perel, C., Migliano, M. E., Aranguren, M., & Musso Carla y Farias, J.** (2017). Diagnóstico de esteatosis hepática por métodos clínicos, bioquímicos y por imágenes. *Rev. Argent. Endocrinol. Metab., 54*(1), 37–46.
+
+**Hassanain, M., AlShaalan, R., Aljiffry, M., Al-Busafi, S., & Metrakos, P.** (2015). Nonalcoholic fatty liver disease: Noninvasive methods of diagnosing hepatic steatosis. *Saudi Journal of Gastroenterology, 21*(2), 64. [https://doi.org/10.4103/1319-3767.153812](https://doi.org/10.4103/1319-3767.153812)
+
+**Hastie, T., Tibshirani, R. J., & Friedman, J.** (2013). *The Elements of Statistical Learning: Data Mining, Inference, and Prediction.* [https://doi.org/10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7)
+
+**Kleinbaum, D. G., & Klein, M.** (2010). *Logistic Regression: A Self-Learning Text.* Springer.
+
+**Lanche, M. M. M., & Fuentemayor, C. P.** (2022). Métodos no invasivos sobre diagnóstico de esteatosis hepática no alcohólica. *Revista Vive, 5*(13), 214–232. [https://doi.org/10.33996/revistavive.v5i13.143](https://doi.org/10.33996/revistavive.v5i13.143)
+
+**Mauricio, C. B.** (2017). *Sistema de Iluminación y adquisición de imágenes digitales para aplicaciones médicas.* IPN – ESIME Zacatenco.
+
+**Medici, V., Czlonkowska, A., Litwin, T., & Giulivi, C.** (2023). Diagnóstico de la enfermedad de Wilson y sus fenotipos usando inteligencia artificial. *Magna Scientia UCEVA, 3*(1), 54–64. [https://doi.org/10.54502/msuceva.v3n1a5](https://doi.org/10.54502/msuceva.v3n1a5)
+
+**Mudrová, M., & Procházka, A.** (2005). *Principal Component Analysis in Image Processing.*
+
+**Otsu, N.** (1979). A Threshold Selection Method from Gray-Level Histograms. *IEEE Transactions on Systems, Man, and Cybernetics, 9*(1), 62–66. [https://doi.org/10.1109/tsmc.1979.4310076](https://doi.org/10.1109/tsmc.1979.4310076)
+
+**Potočnik, J., Foley, S., & Thomas, E.** (2023). Current and potential applications of artificial intelligence in medical imaging practice: A narrative review. *Journal of Medical Imaging and Radiation Sciences, 54*(2), 376–385. [https://doi.org/10.1016/j.jmir.2023.03.033](https://doi.org/10.1016/j.jmir.2023.03.033)
+
+**Romero Fernández, A. J. F., Villacres, G. E. A. B. I. M.** (2019). *Machine Learning para la extracción de información biomédica.* [https://dspace.uniandes.edu.ec/handle/123456789/10325](https://dspace.uniandes.edu.ec/handle/123456789/10325)
+
+**SAICO, D. J. S.** (2016). *Sistema Experto para el control y prevención de la obesidad infantil en niños de 5 a 8 años basado en redes neuronales.* [http://repositorio.umsa.bo/xmlui/handle/123456789/9899](http://repositorio.umsa.bo/xmlui/handle/123456789/9899)
+
+**SARA, V. N.** (2019). *ANTECEDENTES HISTÓRICOS DE LAS REDES NEURONALES ARTIFICIALES.* UAEM.
+
+**Schattenberg, J. M., Chalasani, N., & Alkhouri, N.** (2023). Artificial Intelligence Applications in Hepatology. *Clinical Gastroenterology and Hepatology, 21*(8), 2015–2025. [https://doi.org/10.1016/j.cgh.2023.04.007](https://doi.org/10.1016/j.cgh.2023.04.007)
+
+**Serra, J. P.** (1982). *Image Analysis and Mathematical Morphology.*
+
+**Smith, A. R.** (1978). Color gamut transform pairs. *ACM SIGGRAPH Computer Graphics, 12*(3), 12–19. [https://doi.org/10.1145/965139.807361](https://doi.org/10.1145/965139.807361)
+
+**SSA.** (2012). *NOM-004-SSA3-2012, Del expediente clínico.* [https://www.gob.mx/cms/uploads/attachment/file/629875/NOM-004-SSA3-EXPEDIENTE-CLINICO.pdf](https://www.gob.mx/cms/uploads/attachment/file/629875/NOM-004-SSA3-EXPEDIENTE-CLINICO.pdf)
+
+**SSA.** (2013). *NOM-034-SSA3-2013, Regulación de los servicios de salud.* [https://www.gob.mx/cms/uploads/attachment/file/512076/NOM-034-SSA3-2013.pdf](https://www.gob.mx/cms/uploads/attachment/file/512076/NOM-034-SSA3-2013.pdf)
+
+**Tsipras, D., Santurkar, S., Engstrom, L., Ilyas, A., & Madry, A.** (2020). *From ImageNet to Image Classification: Contextualizing Progress on Benchmarks.* arXiv.org. [https://arxiv.org/abs/2005.11295](https://arxiv.org/abs/2005.11295)
+
+**Valor, A., Romeu, E. J. A., Escobedo, G., Campos-Espinosa, A., Romero-Bello, I. I., Moreno-González, J., Bustos, D. A. F., Stolik, S., De la Rosa Vázquez, J. M., & Guzmán, C.** (2019). Study of Methionine Choline Deficient Diet-Induced Steatosis in Mice Using Endogenous Fluorescence Spectroscopy. *Molecules, 24*(17), 3150. [https://doi.org/10.3390/molecules24173150](https://doi.org/10.3390/molecules24173150)
+
+**Van Melle, W.** (1978). MYCIN: a knowledge-based consultation program. *International Journal of Man-Machine Studies, 10*(3), 313–322. [https://doi.org/10.1016/s0020-7373(78)80049-2](https://doi.org/10.1016/s0020-7373%2878%2980049-2)
+
+**Vuksanaj, K., & Smith, J.** (2024). 5 key startups bringing digital pathology into focus.
+[https://www.insideprecisionmedicine.com/topics/precision-medicine/5-key-startups-bringing-digital-pathology-into-focus/](https://www.insideprecisionmedicine.com/topics/precision-medicine/5-key-startups-bringing-digital-pathology-into-focus/)
+
+**Zhou, Z.** (2019). Hepatic Steatosis Assessment Using Quantitative Ultrasound Parametric Imaging. *Applied Sciences.* [https://doi.org/10.1016/j.ultrasmedbio.2018.03.002](https://doi.org/10.1016/j.ultrasmedbio.2018.03.002)
+
+

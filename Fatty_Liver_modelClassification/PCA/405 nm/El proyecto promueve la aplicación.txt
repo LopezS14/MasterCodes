@@ -1,0 +1,5 @@
+Desarrollo de un sistema basado en inteligencia artificial capaz de identificar el grado de esteatosis hepática a partir de imágenes que el propio usuario proporcione.
+
+El sistema debe entrenarse utilizando el conjunto de datos disponible, de modo que pueda aprender los patrones característicos asociados a cada nivel de esteatosis y emitir un diagnóstico fundamentado en esa información.
+
+El desempeño del sistema será evaluado mediante las distintas pruebas de validación aplicadas, y su tasa de acierto corresponderá a los resultados obtenidos en dichas evaluaciones.

@@ -1,0 +1,28 @@
+Reporte de clasificación:
+              precision    recall  f1-score   support
+
+     Control       0.29      0.33      0.31         6
+          2w       0.50      0.17      0.25         6
+          8w       0.30      0.50      0.37         6
+         12w       0.80      0.67      0.73         6
+
+    accuracy                           0.42        24
+   macro avg       0.47      0.42      0.41        24
+weighted avg       0.47      0.42      0.41        24
+
+
+Exactitud (accuracy) con SVM: 0.417
+
+
+Reporte de clasificación:
+Reporte de clasificación:
+               precision    recall  f1-score    support
+Control           0.80       0.67      0.73         6     
+2w                0.75       0.83      0.79         6    
+8w                0.78       0.67      0.72         6     
+12w               0.80       0.83      0.81         6     
+
+accuracy                               0.77        24
+macro avg         0.78       0.75      0.76         24
+weighted avg      0.78       0.77      0.76         24
+

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='card'>
+  <div class='card-body'>
+    <h4 class='card-title'>{{ titulo }}</h4>
+    <p class='text-secondary'>{{ texto }}</p>
+    <a class='btn btn-secondary' href='{{ url_for("menu") }}'>Volver</a>
+  </div>
+</div>
+{% endblock %}

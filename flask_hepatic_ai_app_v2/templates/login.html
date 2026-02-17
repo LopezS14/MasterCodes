@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='row justify-content-center'>
+  <div class='col-md-4'>
+    <div class='card shadow'>
+      <div class='card-body'>
+        <h5 class='card-title mb-3' style="color: aliceblue; text-align: center;">Welcome</h5>
+        <form method='post' autocomplete='off'>
+          <div class='mb-3'>
+            <label class='form-label' style="color: aliceblue;" >User</label>
+            <input name='username' class='form-control' required>
+          </div>
+          <div class='mb-3'>
+            <label class='form-label' style="color: aliceblue;">Password</label>
+            <input name='password' type='password' class='form-control' required>
+          </div>
+          <button class='btn btn-primary w-100' style="background-color: blue; border-color:blue;" type='submit' >Login</button>
+        </form>
+        <div class="d-flex justify-content-between mt-3" style="font-size:.9rem;">
+        <p class="mb-0 text-secondary">Sign In</p>
+        <p class="mb-0">
+          <a href="#" class="text-secondary text-decoration-none">Forget your password?</a>
+        </p>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

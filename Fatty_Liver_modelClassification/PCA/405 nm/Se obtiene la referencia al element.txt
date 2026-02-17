@@ -1,0 +1,1 @@
+Se obtiene la referencia al elemento HTML5 Canvas y se inicializa su contexto de renderizado 2D. Se definen las variables de estado necesarias, incluyendo el grosor del pincel y las coordenadas del último punto dibujado. Asimismo, se crea un lienzo auxiliar en memoria (buffer) destinado a preservar la información gráfica.

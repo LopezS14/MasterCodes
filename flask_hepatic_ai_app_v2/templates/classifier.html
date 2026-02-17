@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .panel-heading {
+    background:#0d6efd33;
+    border-bottom:1px solid #30363d;
+    padding:6px 12px;
+    border-radius:6px 6px 0 0;
+    font-weight:600;
+    color:#e6edf3;
+  }
+  .panel-body-dark {
+    border:1px solid #30363d;
+    border-radius:0 0 6px 6px;
+    padding:15px 18px;
+    background:#161b22;
+  }
+  .pill-label {
+    border:1px solid #e6edf3;
+    border-radius:999px;
+    padding:4px 16px;
+    display:inline-block;
+    margin-top:6px;
+    color:#e6edf3;
+  }
+  .pill-good {
+  background: #4ade80;    
+  color: #000;            
+  border-color: #4ade80;
+}
+.pill-bad {
+  background: yellow;    
+  color: #000;            
+  border-color:yellow;
+}
+.pill-user {
+  background: cyan;    
+  color: #000;            
+  border-color: cyan;
+}
+
+</style>
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title mb-3 text-center">{{ titulo }}</h4>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- =================== LEFT COLUMN =================== -->
+      <div class="col-lg-5 d-flex flex-column">
+        <div class="panel-heading">Analysis Panel</div>
+        <div class="panel-body-dark flex-grow-1 d-flex flex-column">
+
+          <!-- Image upload -->
+          <form method="POST" enctype="multipart/form-data" class="mb-3">
+            <div class="mb-3">
+              <label for="file" class="form-label" style="color:#e6edf3;">
+                Select an image (.png, .jpg, .jpeg):
+              </label>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                class="form-control"
+                accept=".png,.jpg,.jpeg"
+                required
+              />
+            </div>
+            <div class="d-flex gap-2 mb-3">
+              <button type="submit" class="btn btn-primary flex-grow-1">
+                Upload image
+              </button>
+              <a class="btn btn-secondary" href="{{ url_for('menu') }}">
+                Back to menu
+              </a>
+            </div>
+          </form>
+
+          <!-- Displayed image -->
+          {% if image_url %}
+          <div class="text-center mb-3">
+            <div class="mb-2" style="font-size:.9rem; color:#e6edf3;">Analyzed region</div>
+            <img
+              src="{{ image_url }}"
+              alt="Uploaded image"
+              class="img-fluid rounded"
+              style="max-width: 220px; max-height: 220px;"
+            />
+          </div>
+          {% endif %}
+
+          <!-- Prediction + confidences -->
+          {% if resultado %}
+          <div class="d-flex justify-content-center mt-auto">
+            <pre
+              style="
+                text-align: left;
+                display: inline-block;
+                white-space: pre-wrap;
+                font-size: 0.95rem;
+                color: #e6edf3;
+                background: #0d1117;
+                border: 1px solid #30363d;
+                border-radius: 6px;
+                padding: 10px 14px;
+                min-width: 260px;
+              "
+            >{{ resultado }}</pre>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- =================== RIGHT COLUMN =================== -->
+      <div class="col-lg-7 d-flex flex-column">
+        <div class="panel-heading">Prediagnosis – Results</div>
+        <div class="panel-body-dark flex-grow-1 d-flex flex-column">
+
+                <!-- Stage -->
+              <div class="mb-3">
+        <div class="row align-items-center text-center">
+
+          <!-- Columna izquierda: fecha -->
+          <div class="col-md-4 mb-2 mb-md-0">
+            <div style="font-size:.85rem; color:#e6edf3; margin-bottom:4px;">
+              Date
+            </div>
+            <input
+              type="date"
+              class="form-control form-control-sm"
+              name="predate"
+              id="predate"
+            />
+          </div>
+
+          <!-- Columna centro: estado del tejido (pill) -->
+          <div class="col-md-4 mb-2 mb-md-0">
+            <div style="font-size:.9rem; color:#e6edf3; margin-bottom:4px;">
+              Tissue status
+            </div>
+
+            {% if pred_clase %}
+              {% if pred_clase in ['2w','8w','12w'] %}
+                <div class="pill-label pill-bad">Attention required!</div>
+              {% elif pred_clase == 'Control' %}
+                <div class="pill-label pill-good">Everything Okay!</div>
+              {% else %}
+                <div class="pill-label">Class: {{ pred_clase }}</div>
+              {% endif %}
+            {% else %}
+              <div class="pill-label" style="color:#8b949e; border-color:#8b949e;">
+                Awaiting analysis
+              </div>
+            {% endif %}
+          </div>
+
+          <!-- Columna derecha: usuario en sesión -->
+          <div class="col-md-4">
+            <div style="font-size:.85rem; color:#e6edf3; margin-bottom:4px;">
+              User in session
+            </div>
+            <div
+              class="pill-label pill-user"
+              style="border-radius:999px; padding:4px 16px; border-color:#30363d;"
+            >
+              {{ session['user'] }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+          <!-- Interpretation -->
+          <div class="mb-3" style="text-align: center;">
+            <h6 class="mb-2" style="color:#e6edf3;">Prediagnosis Interpretation</h6>
+
+            {% if diagnostico %}
+              <p style="white-space: pre-wrap; margin-bottom:0; color:#e6edf3;">
+                {{ diagnostico }}
+              </p>
+            {% else %}
+              <p style="font-size:.9rem; color:#e6edf3;">
+                Upload an image in the left panel to obtain the prediagnosis.
+                <br><br>
+                • The system identifies <strong>fatty liver</strong> when the predicted class is
+                <strong>2w, 8w, or 12w</strong>.<br>
+                • It identifies <strong>healthy liver</strong> when the class is
+                <strong>Control</strong>.
+              </p>
+            {% endif %}
+          </div>
+
+          <!-- Class summary -->
+          <div class="mt-auto pt-2 border-top border-secondary" style="font-size:.9rem;">
+            <div class="row">
+              <div class="col-sm-6 mb-2">
+                <span style="color:#e6edf3;">Assigned Class:</span><br>
+                {% if pred_clase %}
+                  <strong>{{ pred_clase }}</strong>
+                {% else %}
+                  <span style="color:#8b949e;">No data</span>
+                {% endif %}
+              </div>
+
+              <div class="col-sm-6 mb-2">
+                <span style="color:#e6edf3;">Tissue Type (summary):</span><br>
+                {% if pred_clase %}
+                  {% if pred_clase in ['2w','8w','12w'] %}
+                    <strong>Compatible with fatty liver</strong>
+                  {% elif pred_clase == 'Control' %}
+                    <strong>Compatible with healthy liver</strong>
+                  {% else %}
+                    <strong>Undetermined</strong>
+                  {% endif %}
+                {% else %}
+                  <span style="color:#8b949e;">No data</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

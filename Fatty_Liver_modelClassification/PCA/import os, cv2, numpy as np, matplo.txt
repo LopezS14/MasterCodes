@@ -1,0 +1,118 @@
+import os
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+# ===================== CONFIG =====================
+BASE_PATH = "data_455nm/val_data"   # <- ruta fija
+SUBFOLDERS = ["2w", "8w", "12w", "Control"]
+IMAGE_SIZE = (128, 128)
+NUM_COMPONENTS = 19
+
+# ===================== CARGA DE IMÁGENES =====================
+data = []
+labels = []
+
+for label in SUBFOLDERS:
+    folder_path = os.path.join(BASE_PATH, label)
+    for file in os.listdir(folder_path):
+        if file.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tif')):
+            # --- Leer en color (RGB) ---
+            img = cv2.imread(os.path.join(folder_path, file))
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)  # convierte a RGB
+            img = cv2.resize(img, IMAGE_SIZE)
+            
+            # --- Normalizar a [0,1] ---
+            #img = img.astype(np.float32) / 255.0
+            
+            # --- Aplanar y almacenar ---
+            data.append(img.flatten())
+            labels.append(label)
+
+X = np.array(data)
+print(f"Total de imágenes: {len(X)}")
+print(f"Forma de X: {X.shape}")  # Debería ser (19, 49152)
+
+# ===================== PCA =====================
+pca = PCA(n_components=NUM_COMPONENTS)
+pca.fit(X)
+X_pca = pca.transform(X)
+
+# --------------------- RESULTADOS ---------------------
+print("\n--- PCA ---")
+print("Varianza explicada:", pca.explained_variance_ratio_)
+print("Varianza acumulada:", np.cumsum(pca.explained_variance_ratio_))
+print("Valores propios:", pca.explained_variance_)
+print("Valores singulares:", pca.singular_values_)
+print("Componentes (cargas):", pca.components_)
+print("Scores (proyecciones):", X_pca)
+
+# ===================== GRÁFICAS =====================
+# ===================== GRÁFICAS =====================
+# --- Varianza acumulada ---
+plt.figure()
+plt.plot(np.cumsum(pca.explained_variance_ratio_), marker='o')
+plt.xlabel('Número de componentes')
+plt.ylabel('Varianza explicada acumulada')
+plt.title('PCA - Varianza acumulada (HSV)')
+plt.grid(True)
+plt.show()
+
+# --- Dispersión 2D ---
+if NUM_COMPONENTS >= 2:
+    label_to_int = {lab: i for i, lab in enumerate(SUBFOLDERS)}
+    y = np.array([label_to_int[l] for l in labels])
+    
+    # PC1 vs PC2
+    plt.figure()
+    for lab, idx in label_to_int.items():
+        sel = (y == idx)
+        plt.scatter(X_pca[sel, 0], X_pca[sel, 1], label=lab, alpha=0.7)
+    plt.xlabel('PC1')
+    plt.ylabel('PC2')
+    plt.title('PCA - Proyección en PC1 vs PC2 (HSV)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    
+    # PC1 vs PC3
+    if NUM_COMPONENTS >= 3:
+        plt.figure()
+        for lab, idx in label_to_int.items():
+            sel = (y == idx)
+            plt.scatter(X_pca[sel, 0], X_pca[sel, 2], label=lab, alpha=0.7)
+        plt.xlabel('PC1')
+        plt.ylabel('PC3')
+        plt.title('PCA - Proyección en PC1 vs PC3 (HSV)')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
+        # PC2 vs PC3
+        plt.figure()
+        for lab, idx in label_to_int.items():
+            sel = (y == idx)
+            plt.scatter(X_pca[sel, 1], X_pca[sel, 2], label=lab, alpha=0.7)
+        plt.xlabel('PC2')
+        plt.ylabel('PC3')
+        plt.title('PCA - Proyección en PC2 vs PC3 (HSV)')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
+
+
+# --- Dispersión 3D ---
+#if NUM_COMPONENTS >= 3:
+    #fig = plt.figure()
+    #ax = fig.add_subplot(111, projection='3d')
+    #for lab, idx in label_to_int.items():
+        #sel = (y == idx)
+        #ax.scatter(X_pca[sel, 0], X_pca[sel, 1], X_pca[sel, 2], label=lab, alpha=0.8)
+    #ax.set_xlabel('PC1')
+    #ax.set_ylabel('PC2')
+    #ax.set_zlabel('PC3')
+    #ax.set_title('PCA - Proyección (PC1, PC2, PC3) RGB')
+    #ax.legend()
+    #plt.show()

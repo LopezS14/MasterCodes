@@ -1,0 +1,97 @@
+Actor: Deyanira López Salazar
+Actividad: Asistencia al XVII Congreso Mexicano de Inteligencia Artificial (COMIA 2025)
+Descripción breve: Participación como asistente en el congreso organizado por la Sociedad Mexicana de Inteligencia Artificial y la Universidad Panamericana, orientado a la difusión de avances en inteligencia artificial y aprendizaje automático.
+Actores involucrados: Comunidad científica, académica y estudiantil en el área de inteligencia artificial.
+Resultado obtenido: Actualización de conocimientos en IA y fortalecimiento de redes académicas nacionales.
+Fecha inicio: 12/05/2025
+Fecha fin: 16/05/2025
+Modalidad: Presencial
+Lugar: Universidad Panamericana, Ciudad de México, México
+Evidencia:https://drive.google.com/file/d/17o2sKYFHuGJNeIW1dYZtxqWgKQQXSApJ/view?usp=sharing
+
+
+
+
+
+
+
+
+
+
+
+1. COMIA 2025 (Congreso Mexicano de Inteligencia Artificial)
+
+Actor: Deyanira López Salazar
+Actividad: Participación en tutorial del XVII Congreso Mexicano de Inteligencia Artificial (COMIA 2025)
+Descripción breve: Asistencia al tutorial “Aprendizaje Automático con Weka” impartido durante el COMIA 2025, enfocado en técnicas de aprendizaje automático y sus aplicaciones prácticas.
+Actores involucrados: Comunidad académica y estudiantil en el área de inteligencia artificial y ciencia de datos.
+Resultado obtenido: Fortalecimiento de conocimientos en algoritmos de aprendizaje automático y uso de herramientas de análisis de datos (Weka).
+Fecha inicio: 12/05/2025
+Fecha fin: 16/05/2025
+Modalidad: Presencial
+Lugar: Universidad Panamericana, Ciudad de México, México
+Evidencia: https://drive.google.com/file/d/1lFYlhMnRbthq1d4QkfR8KSKwuG5C2naP/view?usp=sharing
+2. Congreso Nacional de Tecnología Aplicada a Ciencias de la Salud (UASLP)
+
+Actor: Deyanira López Salazar
+Actividad: Asistencia al XV Congreso Nacional y V Internacional de Tecnología Aplicada a Ciencias de la Salud
+Descripción breve: Participación en actividades académicas orientadas a la aplicación de tecnologías ópticas y digitales en ciencias médicas y de la salud.
+Actores involucrados: Comunidad científica, estudiantes y profesionales en áreas biomédicas y de ingeniería.
+Resultado obtenido: Actualización en avances tecnológicos aplicados al diagnóstico médico y fortalecimiento de redes académicas.
+Fecha inicio: 05/06/2025
+Fecha fin: 07/06/2025
+Modalidad: Presencial
+Lugar: Universidad Autónoma de San Luis Potosí, San Luis Potosí, México
+Evidencia:https://drive.google.com/file/d/1i9FzORggixme9-CsS5EOz044tZayKuQm/view?usp=sharing
+
+3.CINVESTAV – Artificial Intelligence and Machine Learning Meeting 2025
+
+Actor: Deyanira López Salazar
+Actividad: Asistencia al congreso “First Artificial Intelligence and Machine Learning Meeting: Applications to Biological and Medical Sciences”
+Descripción breve: Participación en conferencias y sesiones sobre la aplicación de inteligencia artificial y aprendizaje automático en el ámbito biológico y médico.
+Actores involucrados: Investigadores, docentes y estudiantes del área biomédica y computacional.
+Resultado obtenido: Ampliación de conocimientos sobre metodologías de IA aplicadas a la biología y medicina.
+Fecha inicio: 14/07/2025
+Fecha fin: 18/07/2025
+Modalidad: Presencial
+Lugar: CINVESTAV, Ciudad de México, México
+Evidencia:https://correoipn-my.sharepoint.com/:b:/g/personal/dlopezs2402_alumno_ipn_mx/ERqnbfPg2MVGmC_yTe3ly5sB2Rzcob8y_U-sMpme0u6Dbw?e=Z3rcEi
+
+4.Biospectroscopy School – UFABC (Brasil)
+
+Actor: Deyanira López Salazar
+Actividad: Asistencia a la Biospectroscopy School 2025
+Descripción breve: Participación en la escuela internacional sobre técnicas espectroscópicas avanzadas para diagnóstico biomédico, organizada por la Sociedade Brasileira de Fotônica.
+Actores involucrados: Estudiantes e investigadores internacionales en óptica y fotónica biomédica.
+Resultado obtenido: Adquisición de conocimientos sobre espectroscopía aplicada a sistemas biológicos y clínicos.
+Fecha inicio: 19/09/2025
+Fecha fin: 21/09/2025
+Modalidad: Presencial
+Lugar: Federal University of ABC (UFABC), Santo André, Brasil
+Evidencia:https://correoipn-my.sharepoint.com/:b:/g/personal/dlopezs2402_alumno_ipn_mx/EStpWUioLVxOnjMC7NYW1a4BcearhrgggilVA1jkSis2lw?e=DJuiiH
+
+5.IOPC 2025 – International Optics and Photonics Conference (Brasil)
+
+Actor: Deyanira López Salazar
+Actividad: Presentación de póster en el 7th SBFoton International Optics and Photonics Conference (IOPC 2025)
+Descripción breve: Coautora del trabajo “Artificial Intelligence-Based System for the Diagnosis of Hepatic Steatosis”, presentado en la sesión de pósters del congreso.
+Actores involucrados: Comunidad científica internacional en óptica, fotónica e instrumentación biomédica.
+Resultado obtenido: Difusión del trabajo de investigación y fortalecimiento de la cooperación científica internacional.
+Fecha inicio: 21/09/2025
+Fecha fin: 24/09/2025
+Modalidad: Presencial
+Lugar: São Pedro, São Paulo, Brasil
+Evidencia: https://correoipn-my.sharepoint.com/:b:/g/personal/dlopezs2402_alumno_ipn_mx/EYOwLEQKXzlIv2nzWIoq_FIBYiU_NqZRVmHjCOBpzOD4cA?e=aTH95D
+
+7. CoNMiCyT 2025 – Congreso Nacional Multidisciplinario de Innovación, Ciencia y Tecnología (IPN Hidalgo)
+
+Actor: Deyanira López Salazar
+Actividad: Presentación de trabajo en el Congreso Nacional Multidisciplinario de Innovación, Ciencia y Tecnología (CoNMiCyT 2025)
+Descripción breve: Participación como coautora del trabajo “Artificial intelligence assistant for voice to support at the mental health”, orientado al desarrollo de herramientas de inteligencia artificial para el apoyo en salud mental.
+Actores involucrados: Comunidad académica y científica del Instituto Politécnico Nacional y público asistente al congreso.
+Resultado obtenido: Difusión de resultados de investigación y contribución al intercambio académico multidisciplinario.
+Fecha inicio: 28/10/2025
+Fecha fin: 30/10/2025
+Modalidad: Presencial
+Lugar: Instituto Politécnico Nacional, UPIIH-IPN, San Agustín Tlaxiaca, Hidalgo, México
+Evidencia:

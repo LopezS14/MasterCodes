@@ -1,0 +1,11 @@
+ Reporte de clasificación (2w, 8w, 12w, Control):
+              precision    recall  f1-score   support
+
+          2w       0.44      0.67      0.53         6
+          8w       0.60      0.50      0.55         6
+         12w       1.00      0.67      0.80         6
+     Control       0.83      0.83      0.83         6
+
+    accuracy                           0.67        24
+   macro avg       0.72      0.67      0.68        24
+weighted avg       0.72      0.67      0.68        24

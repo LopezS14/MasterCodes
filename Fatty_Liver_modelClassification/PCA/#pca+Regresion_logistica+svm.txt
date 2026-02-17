@@ -1,0 +1,26 @@
+#  Varianza por cada componente
+#plt.figure(figsize=(6,4))
+#plt.bar(range(1, len(pca.explained_variance_ratio_)+1), pca.explained_variance_ratio_, color='teal')
+#plt.title('Varianza individual por componente')
+#plt.xlabel('Componente principal')
+#plt.ylabel('Varianza explicada')
+#plt.grid(True, axis='y')
+#plt.show()
+
+#  Cargas / pesos de las variables en los primeros PCs
+#plt.figure(figsize=(8,5))
+#plt.bar(range(pca.components_.shape[1]), np.abs(pca.components_[0]), color='orange')
+#plt.title('Cargas absolutas de PC1')
+#plt.xlabel('Índice de variable original')
+#plt.ylabel('Peso |carga| en PC1')
+#plt.grid(True, axis='y')
+#plt.show()
+
+#if pca.n_components_ > 1:
+    #plt.figure(figsize=(8,5))
+    #plt.bar(range(pca.components_.shape[1]), np.abs(pca.components_[1]), color='green')
+    #plt.title('Cargas absolutas de PC2')
+    #plt.xlabel('Índice de variable original')
+    #plt.ylabel('Peso |carga| en PC2')
+    #plt.grid(True, axis='y')
+    #plt.show()

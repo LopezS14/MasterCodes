@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>⚙️🔌Sistema</title>
+  <link rel="stylesheet" href="/static/styles.css">
+ <link rel="icon" href="/static/favicon.ico">
+<link rel="icon" type="image/png" href="/static/favicon.png">
+
+
+</head>
+<body>
+  <div class="app">
+    <!-- Panel izquierdo -->
+    <aside class="left">
+      <!-- Conexión -->
+      <section class="card">
+        <div class="card-header">
+          <div class="title">🔌 Conexión</div>
+        </div>
+
+        <div class="card-body conn-body">
+
+          <div class="status-row">
+            <div id="statusDot" class="dot dot-red">✕</div>
+            <div>
+              <div id="statusText" class="status-text status-red">Desconectado</div>
+            </div>
+          </div>
+
+          <!--<label class="label">Puerto (opcional)</label>-->
+          <div class="row">
+            <!--<select id="portSelect" class="select">
+              <option>Auto (primer puerto)</option>
+              <option>COM3</option>
+              <option>COM4</option>
+              <option>/dev/ttyUSB0</option>
+            </select>-->
+
+            
+          </div>
+          <button id="btnToggleConn" class="btn btn-green big" type="button">
+            Conectar
+          </button>
+
+        </div>
+      </section>
+
+      <!-- Tipo de luz -->
+      <section class="card tipo-luz">
+  <div class="card-header">
+    <div class="title">💡 Tipo de luz</div>
+  </div>
+
+  <div class="card-body light-body">
+    <!-- 👇 Leyenda interna -->
+    <div class="sub-label">Seleccionar longitud de onda</div>
+
+    <!-- Radios en 2 columnas -->
+          <div class="radio-grid">
+            <label class="radio">
+              <input type="radio" name="light" value="Blanco" checked>
+              <span>Blanco</span>
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="light" value="365 nm">
+              <span>365 nm</span>
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="light" value="405 nm">
+              <span>405 nm</span>
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="light" value="455 nm">
+              <span>455 nm</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="light" value="455 nm">
+              <span>510 nm</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="light" value="455 nm">
+              <span>620 nm</span>
+            </label>
+          </div>
+
+          <button id="btnApplyLight" class="btn btn-gray" type="button">
+            Aplicar luz
+          </button>
+        </div>
+      </section>
+
+
+
+      <!-- Intensidad -->
+      <section class="card">
+      <div class="card-header">
+        <div class="title">☀️ Intensidad</div>
+      </div>
+
+      <div class="card-body">
+        <div class="int-header">
+          <div>
+            <span id="intVal" class="int-value">0</span>
+           <span id="intState" class="int-label">Apagado</span>
+
+          </div>
+          <div class="int-label">Máxima</div>
+        </div>
+
+        <div class="slider-wrap">
+          <input id="intSlider"
+                class="int-slider"
+                type="range"
+                min="0" max="5" step="1" value="0">
+          <div class="slider-scale">
+            <span>0</span><span>1</span><span>2</span>
+            <span>3</span><span>4</span><span>5</span>
+          </div>
+        </div>
+
+        <button id="btnApplyInt" class="btn btn-gray">
+          Aplicar intensidad
+        </button>
+      </div>
+    </section>
+
+    </aside>
+
+    <!-- Panel derecho -->
+    <main class="right">
+      <section class="viewer-card">
+        <div class="viewer-header">
+          <div class="title">📷 Cámara + Segmentación
+          </div>
+          <div class="toolbar">
+            <label class="label-inline">Carpeta</label>
+            <input id="folderName" class="text-input" type="text" value="sesion_01" style="width:170px">
+
+            <label class="label-inline">N</label>
+            <input id="capN" class="text-input" type="number" min="1" max="9999" value="10" style="width:90px">
+
+            <button id="btnSnapN" class="btn btn-gray" type="button">Capturar </button>
+            <input id="fileImage" type="file" accept="image/*" hidden>
+            <button id="btnLoadImage" class="btn btn-gray" type="button">Iniciar Segementación</button>
+            <button id="btnBackCamera" class="btn btn-gray" type="button">Volver a cámara</button>
+
+
+            
+          <div class="toolbar-break"></div>
+
+          <div class="grosor-block">
+          <div class="title"> Segmentación manual
+          </div>
+            
+            <button id="btnClearDraw" class="btn btn-gray" type="button">Borrar trazo</button>
+
+            <label class="label-inline">Grosor</label>
+            <input id="brush" type="range" min="0" max="40" value="8">
+
+            <button id="zoomIn" class="btn btn-gray" type="button">Zoom +</button>
+            <button id="zoomOut" class="btn btn-gray" type="button">Zoom -</button>
+            <button id="zoomReset" class="btn btn-gray" type="button">Reset</button>
+
+        <a id="btnDownload" class="btn btn-green" download="anotado.png" href="#">Descargar PNG</a>
+          </div>
+        </div>
+
+        <div class="viewer-body">
+          <div class="videoWrap">
+            <img id="video" class="video" src="/video_feed" alt="video">
+            <canvas id="canvas" class="canvas"></canvas>
+          </div>
+
+          
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
