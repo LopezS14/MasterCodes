@@ -1,229 +1,222 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-  .panel-heading {
-    background:#0d6efd33;
-    border-bottom:1px solid #30363d;
-    padding:6px 12px;
-    border-radius:6px 6px 0 0;
-    font-weight:600;
-    color:#e6edf3;
-  }
-  .panel-body-dark {
-    border:1px solid #30363d;
-    border-radius:0 0 6px 6px;
-    padding:15px 18px;
-    background:#161b22;
-  }
-  .pill-label {
-    border:1px solid #e6edf3;
-    border-radius:999px;
-    padding:4px 16px;
-    display:inline-block;
-    margin-top:6px;
-    color:#e6edf3;
-  }
-  .pill-good {
-  background: #4ade80;    
-  color: #000;            
-  border-color: #4ade80;
-}
-.pill-bad {
-  background: yellow;    
-  color: #000;            
-  border-color:yellow;
-}
-.pill-user {
-  background: cyan;    
-  color: #000;            
-  border-color: cyan;
-}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-</style>
+<!-- Alert icons (no backend change) -->
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+  <symbol id="info-fill" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
 
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title mb-3 text-center">{{ titulo }}</h4>
 
-    <div class="row g-4 align-items-stretch">
-      <!-- =================== LEFT COLUMN =================== -->
-      <div class="col-lg-5 d-flex flex-column">
-        <div class="panel-heading">Analysis Panel</div>
-        <div class="panel-body-dark flex-grow-1 d-flex flex-column">
 
-          <!-- Image upload -->
-          <form method="POST" enctype="multipart/form-data" class="mb-3">
-            <div class="mb-3">
-              <label for="file" class="form-label" style="color:#e6edf3;">
-                Select an image (.png, .jpg, .jpeg):
-              </label>
-              <input
-                type="file"
-                name="file"
-                id="file"
-                class="form-control"
-                accept=".png,.jpg,.jpeg"
-                required
-              />
-            </div>
-            <div class="d-flex gap-2 mb-3">
-              <button type="submit" class="btn btn-primary flex-grow-1">
-                Upload image
-              </button>
-              <a class="btn btn-secondary" href="{{ url_for('menu') }}">
-                Back to menu
-              </a>
-            </div>
-          </form>
 
-          <!-- Displayed image -->
-          {% if image_url %}
-          <div class="text-center mb-3">
-            <div class="mb-2" style="font-size:.9rem; color:#e6edf3;">Analyzed region</div>
-            <img
-              src="{{ image_url }}"
-              alt="Uploaded image"
-              class="img-fluid rounded"
-              style="max-width: 220px; max-height: 220px;"
-            />
+  <!-- ===== TABS ===== -->
+  <section class="tabs glass">
+    <button class="tab active" type="button">
+      <i class="bi bi-cloud-arrow-up"></i>
+      <span>Prediagnosis panel</span>
+    </button>
+    <button class="tab" type="button">
+      <i class="bi bi-clipboard2-pulse"></i>
+      <span>Results</span>
+    </button>
+  </section>
+
+  <!-- ===== MAIN PANEL ===== -->
+  <main class="main glass">
+    <div class="main-grid">
+
+      <!-- LEFT: upload -->
+      <section class="panel glass-2">
+        <div class="panel-head">
+          <div class="panel-title">
+            <i class="bi bi-pin-angle"></i>
+            <span>Pre-diagnosis panel</span>
           </div>
-          {% endif %}
-
-          <!-- Prediction + confidences -->
-          {% if resultado %}
-          <div class="d-flex justify-content-center mt-auto">
-            <pre
-              style="
-                text-align: left;
-                display: inline-block;
-                white-space: pre-wrap;
-                font-size: 0.95rem;
-                color: #e6edf3;
-                background: #0d1117;
-                border: 1px solid #30363d;
-                border-radius: 6px;
-                padding: 10px 14px;
-                min-width: 260px;
-              "
-            >{{ resultado }}</pre>
-          </div>
-          {% endif %}
+          <a class="panel-back" href="{{ url_for('menu') }}">
+            <i class="bi bi-chevron-left"></i>
+          </a>
         </div>
-      </div>
 
-      <!-- =================== RIGHT COLUMN =================== -->
-      <div class="col-lg-7 d-flex flex-column">
-        <div class="panel-heading">Prediagnosis – Results</div>
-        <div class="panel-body-dark flex-grow-1 d-flex flex-column">
-
-                <!-- Stage -->
-              <div class="mb-3">
-        <div class="row align-items-center text-center">
-
-          <!-- Columna izquierda: fecha -->
-          <div class="col-md-4 mb-2 mb-md-0">
-            <div style="font-size:.85rem; color:#e6edf3; margin-bottom:4px;">
-              Date
-            </div>
-            <input
-              type="date"
-              class="form-control form-control-sm"
-              name="predate"
-              id="predate"
-            />
+        <form method="POST" enctype="multipart/form-data" class="form">
+          <div class="field">
+            <label class="label">Patient Name</label>
+            <input class="form-control input-ligth" type="text" placeholder="Ingrese su nombre aquí">
           </div>
 
-          <!-- Columna centro: estado del tejido (pill) -->
-          <div class="col-md-4 mb-2 mb-md-0">
-            <div style="font-size:.9rem; color:#e6edf3; margin-bottom:4px;">
-              Tissue status
-            </div>
+          <div class="field">
+            <label class="label">Input date</label>
+            <input class="form-control input-light" type="date" name="predate" id="predate">
+          </div>
 
+          <div class="field">
+            <label class="label">Field</label>
+            <input class="form-control input-dark" type="file" name="file" id="file" accept=".png,.jpg,.jpeg" required>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary w-100 btn-xl" type="submit">
+              <i class="bi bi-upload me-1"></i>
+              Subir Imagen2
+            </button>
+          </div>
+        </form>
+
+        <div class="bottom-row">
+          <div class="preview glass-2">
+            <div class="box-title">Región Analizada</div>
+            {% if image_url %}
+              <img class="preview-img" src="{{ image_url }}" alt="Uploaded image">
+            {% else %}
+              <div class="empty">No Results Yet</div>
+            {% endif %}
+          </div>
+
+          <div class="preview glass-2">
+            <div class="box-title">Salida del modelo</div>
+            {% if resultado %}
+              <pre class="model-out">{{ resultado }}</pre>
+            {% else %}
+              <div class="empty">No Results Yet</div>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: results -->
+      <section class="panel glass-2">
+        <div class="panel-head">
+          <div class="panel-title">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <span>Resultados</span>
+          </div>
+        </div>
+
+        <div class="diag glass-2">
+          <div class="diag-head">
+            <div class="diag-title">Diagnóstico Preliminar</div>
+          </div>
+
+          <div class="diag-body">
             {% if pred_clase %}
               {% if pred_clase in ['2w','8w','12w'] %}
-                <div class="pill-label pill-bad">Attention required!</div>
+                <div class="diag-cardline">
+                  <div class="diag-ic red">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                  </div>
+                  <div class="diag-txt">
+                    <div class="diag-main">Hígado Graso</div>
+                    <div class="diag-sub">Semana {{ pred_clase }}</div>
+                  </div>
+                  <div class="diag-mini">
+                    <i class="bi bi-people"></i>
+                  </div>
+                </div>
+                <div class="progressline"><span class="pfill"></span></div>
+                <div class="diag-meta">Clase asignada: <strong>{{ pred_clase }}</strong></div>
+
               {% elif pred_clase == 'Control' %}
-                <div class="pill-label pill-good">Everything Okay!</div>
+                <div class="diag-cardline">
+                  <div class="diag-ic green">
+                    <i class="bi bi-check-circle-fill"></i>
+                  </div>
+                  <div class="diag-txt">
+                    <div class="diag-main">Hígado Sano</div>
+                    <div class="diag-sub">Control</div>
+                  </div>
+                  <div class="diag-mini">
+                    <i class="bi bi-people"></i>
+                  </div>
+                </div>
+                <div class="progressline"><span class="pfill ok"></span></div>
+                <div class="diag-meta">Clase asignada: <strong>{{ pred_clase }}</strong></div>
+
               {% else %}
-                <div class="pill-label">Class: {{ pred_clase }}</div>
+                <div class="diag-cardline">
+                  <div class="diag-ic blue">
+                    <i class="bi bi-info-circle-fill"></i>
+                  </div>
+                  <div class="diag-txt">
+                    <div class="diag-main">Resultado</div>
+                    <div class="diag-sub">{{ pred_clase }}</div>
+                  </div>
+                </div>
               {% endif %}
             {% else %}
-              <div class="pill-label" style="color:#8b949e; border-color:#8b949e;">
-                Awaiting analysis
+              <div class="diag-cardline">
+                <div class="diag-ic blue">
+                  <i class="bi bi-hourglass-split"></i>
+                </div>
+                <div class="diag-txt">
+                  <div class="diag-main">Sin resultado</div>
+                  <div class="diag-sub">Sube una imagen</div>
+                </div>
               </div>
+              <div class="progressline"><span class="pfill wait"></span></div>
             {% endif %}
-          </div>
 
-          <!-- Columna derecha: usuario en sesión -->
-          <div class="col-md-4">
-            <div style="font-size:.85rem; color:#e6edf3; margin-bottom:4px;">
-              User in session
-            </div>
-            <div
-              class="pill-label pill-user"
-              style="border-radius:999px; padding:4px 16px; border-color:#30363d;"
-            >
-              {{ session['user'] }}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-          <!-- Interpretation -->
-          <div class="mb-3" style="text-align: center;">
-            <h6 class="mb-2" style="color:#e6edf3;">Prediagnosis Interpretation</h6>
-
-            {% if diagnostico %}
-              <p style="white-space: pre-wrap; margin-bottom:0; color:#e6edf3;">
-                {{ diagnostico }}
-              </p>
-            {% else %}
-              <p style="font-size:.9rem; color:#e6edf3;">
-                Upload an image in the left panel to obtain the prediagnosis.
-                <br><br>
-                • The system identifies <strong>fatty liver</strong> when the predicted class is
-                <strong>2w, 8w, or 12w</strong>.<br>
-                • It identifies <strong>healthy liver</strong> when the class is
-                <strong>Control</strong>.
-              </p>
-            {% endif %}
-          </div>
-
-          <!-- Class summary -->
-          <div class="mt-auto pt-2 border-top border-secondary" style="font-size:.9rem;">
-            <div class="row">
-              <div class="col-sm-6 mb-2">
-                <span style="color:#e6edf3;">Assigned Class:</span><br>
-                {% if pred_clase %}
-                  <strong>{{ pred_clase }}</strong>
-                {% else %}
-                  <span style="color:#8b949e;">No data</span>
-                {% endif %}
+            <!-- KPIs -->
+            <div class="kpis">
+              <div class="kpi">
+                <i class="bi bi-check2-circle"></i>
+                <span>Sensibilidad:</span>
+                <strong>87%</strong>
               </div>
-
-              <div class="col-sm-6 mb-2">
-                <span style="color:#e6edf3;">Tissue Type (summary):</span><br>
-                {% if pred_clase %}
-                  {% if pred_clase in ['2w','8w','12w'] %}
-                    <strong>Compatible with fatty liver</strong>
-                  {% elif pred_clase == 'Control' %}
-                    <strong>Compatible with healthy liver</strong>
-                  {% else %}
-                    <strong>Undetermined</strong>
-                  {% endif %}
-                {% else %}
-                  <span style="color:#8b949e;">No data</span>
-                {% endif %}
+              <div class="kpi">
+                <i class="bi bi-check2-circle"></i>
+                <span>Especificidad:</span>
+                <strong>95%</strong>
+              </div>
+              <div class="kpi">
+                <i class="bi bi-check2-circle"></i>
+                <span>Precisión total:</span>
+                <strong>87%</strong>
               </div>
             </div>
           </div>
-
         </div>
-      </div>
+
+        <!-- Interpretation -->
+        <div class="glass-2 interp">
+          <div class="box-title">Interpretación</div>
+          {% if diagnostico %}
+            <div class="interp-txt">{{ diagnostico }}</div>
+          {% else %}
+            <div class="muted">
+              Sube una imagen para obtener el prediagnóstico.
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Notes -->
+        <div class="glass-2 notes">
+          <div class="box-title">Observaciones</div>
+          <textarea class="form-control input-dark" style="height:110px" placeholder="Escriba aquí..."></textarea>
+        </div>
+
+        
+        </div>
+
+      </section>
+
     </div>
+  </main>
 
-  </div>
 </div>
+<!-- Logos row (UI only) -->
+        <div class="glass-2 logos">
+          <img src="{{ url_for('static', filename='images/logo-ipn-guinda.png') }}" alt="IPN" onerror="this.style.display='none'">
+          <!--<img src="{{ url_for('static', filename='images/logo_salud.png') }}" alt="SALUD" onerror="this.style.display='none'">-->
+          <div class="muted" style="font-size:.38rem;" id="logos-fallback">
+            
+          </div>
 {% endblock %}

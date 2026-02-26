@@ -127,7 +127,7 @@ def evaluar():
 
     return render_template(
         "classifier.html",
-        titulo="Starting model classification",
+        titulo="Startiting pre-diagnosis",
         pred_clase=pred_clase,
         resultado=resultado,
         image_url=image_url,
